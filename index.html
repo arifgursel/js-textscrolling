@@ -42,11 +42,14 @@
 				for (var j = 0; j < build_up.length ; j++)
 					el.innerHTML = el.innerHTML+build_up[j]
 				//if we're displaying the last word, go back to the first word
-				if(word_counter == words.length){
-					word_counter = 0;
-					el.innerHTML = '';  //set the html to blank screen
-					build_up = [];
-				}
+				// if(word_counter == words.length){
+				// 	word_counter = 0;
+				// 	el.innerHTML = '';  //set the html to blank screen
+				// 	build_up = [];
+				// }
+				//if we're displaying the last word, display home page
+				if(word_counter == words.length)
+					window.open ('http://www.gbam.com','_self',false)
 			}
 			else
 				el.innerHTML = el.innerHTML+words[word_counter][character_counter];
