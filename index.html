@@ -36,16 +36,11 @@
 		{
 			if(character_counter == words[word_counter].length)
 			{
-				alert('End of word, word_count:'+word_counter+' char_count: '+character_counter);
 				build_up.pop(words[word_counter])
 				word_counter++; 	//choose a different word
 				character_counter = -1;	//start over with the first character of the word. Will be set to 0 on function exit
-				for (var j = 0; j < build_up.length ; j++){
-					alert('For Loop:'+j+' adding word: '+words[j])
+				for (var j = 0; j < build_up.length ; j++)
 					el.innerHTML = el.innerHTML+build_up[j]
-				
-				}
-		
 				//if we're displaying the last word, go back to the first word
 				if(word_counter == words.length){
 					word_counter = 0;
