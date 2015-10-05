@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Javascript Demo</title>
+	<script type="text/javascript" src="/js/js-scroll.js"></script>
+	<style>
+		body {
+			background-color:black;
+			font-family: monospace;
+			color:white;
+			font-size:50px;
+			text-align: center;
+			margin-top:20%;
+		}
+
+		#magic{
+			color: #777;
+			border-right: 1px solid #777;
+			padding-right: 7px;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+
+	<p>Gail Boyd Artist Management:</p>  <div id="magic"></div>
+
+	<script>
+
+		var words = ["Eat...", "Sleep...", "Jazz...", "Repeat!"],
+			el = document.getElementById('magic'),
+			word_counter = 0,
+			character_counter = 0;
+			build_up = []
+
+		function updateText()
+		{
+			if(character_counter == words[word_counter].length)
+			{
+				alert('End of word, word_count:'+word_counter+' char_count: '+character_counter);
+				build_up.pop(words[word_counter])
+				word_counter++; 	//choose a different word
+				character_counter = -1;	//start over with the first character of the word. Will be set to 0 on function exit
+				for (var j = 0; j < build_up.length ; j++){
+					alert('For Loop:'+j+' adding word: '+words[j])
+					el.innerHTML = el.innerHTML+build_up[j]
+				
+				}
+		
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == words.length){
+					word_counter = 0;
+					el.innerHTML = '';  //set the html to blank screen
+					build_up = [];
+				}
+			}
+			else
+				el.innerHTML = el.innerHTML+words[word_counter][character_counter];
+			character_counter += 1; //Character increment
+		}
+
+		setInterval(updateText,150);
+
+	</script>
+
+</body>
+
+</html>
